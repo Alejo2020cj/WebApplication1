@@ -1,0 +1,247 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BDHospitalModel1StoreContainer" CdmEntityContainer="BDHospitalEntities1">
+    <EntitySetMapping Name="Boton">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Boton">
+        <MappingFragment StoreEntitySet="Boton">
+          <ScalarProperty Name="IIDBOTON" ColumnName="IIDBOTON" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Cita">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Cita">
+        <MappingFragment StoreEntitySet="Cita">
+          <ScalarProperty Name="IIDCITA" ColumnName="IIDCITA" />
+          <ScalarProperty Name="IIDUSUARIO" ColumnName="IIDUSUARIO" />
+          <ScalarProperty Name="PESO" ColumnName="PESO" />
+          <ScalarProperty Name="ESTATURA" ColumnName="ESTATURA" />
+          <ScalarProperty Name="EXAMENFISICO" ColumnName="EXAMENFISICO" />
+          <ScalarProperty Name="EXAMENLABORATORIO" ColumnName="EXAMENLABORATORIO" />
+          <ScalarProperty Name="DIAGNOSTICO" ColumnName="DIAGNOSTICO" />
+          <ScalarProperty Name="DFECHACITA" ColumnName="DFECHACITA" />
+          <ScalarProperty Name="IIDESTADOCITA" ColumnName="IIDESTADOCITA" />
+          <ScalarProperty Name="IIDSEDE" ColumnName="IIDSEDE" />
+          <ScalarProperty Name="PRECIOATENCION" ColumnName="PRECIOATENCION" />
+          <ScalarProperty Name="TOTALPAGAR" ColumnName="TOTALPAGAR" />
+          <ScalarProperty Name="DFECHAINICIOENFERMEDAD" ColumnName="DFECHAINICIOENFERMEDAD" />
+          <ScalarProperty Name="IIDDOCTORASIGNADO" ColumnName="IIDDOCTORASIGNADO" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+          <ScalarProperty Name="IIDPERSONA" ColumnName="IIDPERSONA" />
+          <ScalarProperty Name="DESCRIPCIONENFERMEDAD" ColumnName="DESCRIPCIONENFERMEDAD" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="CitaMedicamento">
+      <EntityTypeMapping TypeName="BDHospitalModel1.CitaMedicamento">
+        <MappingFragment StoreEntitySet="CitaMedicamento">
+          <ScalarProperty Name="IIDCITAMEDICAMENTO" ColumnName="IIDCITAMEDICAMENTO" />
+          <ScalarProperty Name="IIDCITA" ColumnName="IIDCITA" />
+          <ScalarProperty Name="IIDMEDICAMENTO" ColumnName="IIDMEDICAMENTO" />
+          <ScalarProperty Name="CANTIDAD" ColumnName="CANTIDAD" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Doctor">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Doctor">
+        <MappingFragment StoreEntitySet="Doctor">
+          <ScalarProperty Name="IIDDOCTOR" ColumnName="IIDDOCTOR" />
+          <ScalarProperty Name="IIDSEDE" ColumnName="IIDSEDE" />
+          <ScalarProperty Name="IIDESPECIALIDAD" ColumnName="IIDESPECIALIDAD" />
+          <ScalarProperty Name="SUELDO" ColumnName="SUELDO" />
+          <ScalarProperty Name="FECHACONTRATO" ColumnName="FECHACONTRATO" />
+          <ScalarProperty Name="IIDPERSONA" ColumnName="IIDPERSONA" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Especialidad">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Especialidad">
+        <MappingFragment StoreEntitySet="Especialidad">
+          <ScalarProperty Name="IIDESPECIALIDAD" ColumnName="IIDESPECIALIDAD" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="EstadoCita">
+      <EntityTypeMapping TypeName="BDHospitalModel1.EstadoCita">
+        <MappingFragment StoreEntitySet="EstadoCita">
+          <ScalarProperty Name="IIDESTADO" ColumnName="IIDESTADO" />
+          <ScalarProperty Name="VNOMBRE" ColumnName="VNOMBRE" />
+          <ScalarProperty Name="VDESCRIPCION" ColumnName="VDESCRIPCION" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="FormaFarmaceutica">
+      <EntityTypeMapping TypeName="BDHospitalModel1.FormaFarmaceutica">
+        <MappingFragment StoreEntitySet="FormaFarmaceutica">
+          <ScalarProperty Name="IIDFORMAFARMACEUTICA" ColumnName="IIDFORMAFARMACEUTICA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="HistorialCita">
+      <EntityTypeMapping TypeName="BDHospitalModel1.HistorialCita">
+        <MappingFragment StoreEntitySet="HistorialCita">
+          <ScalarProperty Name="IIDHISTORIALCITA" ColumnName="IIDHISTORIALCITA" />
+          <ScalarProperty Name="IIDCITA" ColumnName="IIDCITA" />
+          <ScalarProperty Name="IIDESTADO" ColumnName="IIDESTADO" />
+          <ScalarProperty Name="IIDUSUARIO" ColumnName="IIDUSUARIO" />
+          <ScalarProperty Name="DFECHA" ColumnName="DFECHA" />
+          <ScalarProperty Name="VOBSERVACION" ColumnName="VOBSERVACION" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Medicamento">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Medicamento">
+        <MappingFragment StoreEntitySet="Medicamento">
+          <ScalarProperty Name="IIDMEDICAMENTO" ColumnName="IIDMEDICAMENTO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="CONCENTRACION" ColumnName="CONCENTRACION" />
+          <ScalarProperty Name="IIDFORMAFARMACEUTICA" ColumnName="IIDFORMAFARMACEUTICA" />
+          <ScalarProperty Name="PRECIO" ColumnName="PRECIO" />
+          <ScalarProperty Name="STOCK" ColumnName="STOCK" />
+          <ScalarProperty Name="PRESENTACION" ColumnName="PRESENTACION" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Paciente">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Paciente">
+        <MappingFragment StoreEntitySet="Paciente">
+          <ScalarProperty Name="IIDPACIENTE" ColumnName="IIDPACIENTE" />
+          <ScalarProperty Name="IIDTIPOSANGRE" ColumnName="IIDTIPOSANGRE" />
+          <ScalarProperty Name="ALERGIAS" ColumnName="ALERGIAS" />
+          <ScalarProperty Name="ENFERMEDADESCRONICAS" ColumnName="ENFERMEDADESCRONICAS" />
+          <ScalarProperty Name="CUADROVACUNAS" ColumnName="CUADROVACUNAS" />
+          <ScalarProperty Name="ANTECEDENTESQUIRURGICOS" ColumnName="ANTECEDENTESQUIRURGICOS" />
+          <ScalarProperty Name="IIDPERSONA" ColumnName="IIDPERSONA" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Pagina">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Pagina">
+        <MappingFragment StoreEntitySet="Pagina">
+          <ScalarProperty Name="IIDPAGINA" ColumnName="IIDPAGINA" />
+          <ScalarProperty Name="MENSAJE" ColumnName="MENSAJE" />
+          <ScalarProperty Name="ACCION" ColumnName="ACCION" />
+          <ScalarProperty Name="CONTROLADOR" ColumnName="CONTROLADOR" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Persona">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Persona">
+        <MappingFragment StoreEntitySet="Persona">
+          <ScalarProperty Name="IIDPERSONA" ColumnName="IIDPERSONA" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="APPATERNO" ColumnName="APPATERNO" />
+          <ScalarProperty Name="APMATERNO" ColumnName="APMATERNO" />
+          <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="TELEFONOFIJO" ColumnName="TELEFONOFIJO" />
+          <ScalarProperty Name="TELEFONOCELULAR" ColumnName="TELEFONOCELULAR" />
+          <ScalarProperty Name="FECHANACIMIENTO" ColumnName="FECHANACIMIENTO" />
+          <ScalarProperty Name="IIDSEXO" ColumnName="IIDSEXO" />
+          <ScalarProperty Name="BDOCTOR" ColumnName="BDOCTOR" />
+          <ScalarProperty Name="BPACIENTE" ColumnName="BPACIENTE" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+          <ScalarProperty Name="FOTO" ColumnName="FOTO" />
+          <ScalarProperty Name="BTIENEUSUARIO" ColumnName="BTIENEUSUARIO" />
+          <ScalarProperty Name="IIDUSUARIO" ColumnName="IIDUSUARIO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sede">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Sede">
+        <MappingFragment StoreEntitySet="Sede">
+          <ScalarProperty Name="IIDSEDE" ColumnName="IIDSEDE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Sexo">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Sexo">
+        <MappingFragment StoreEntitySet="Sexo">
+          <ScalarProperty Name="IIDSEXO" ColumnName="IIDSEXO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="BDHospitalModel1.sysdiagrams">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoSangre">
+      <EntityTypeMapping TypeName="BDHospitalModel1.TipoSangre">
+        <MappingFragment StoreEntitySet="TipoSangre">
+          <ScalarProperty Name="IIDTIPOSANGRE" ColumnName="IIDTIPOSANGRE" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuario">
+      <EntityTypeMapping TypeName="BDHospitalModel1.TipoUsuario">
+        <MappingFragment StoreEntitySet="TipoUsuario">
+          <ScalarProperty Name="IIDTIPOUSUARIO" ColumnName="IIDTIPOUSUARIO" />
+          <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+          <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuarioPagina">
+      <EntityTypeMapping TypeName="BDHospitalModel1.TipoUsuarioPagina">
+        <MappingFragment StoreEntitySet="TipoUsuarioPagina">
+          <ScalarProperty Name="IIDTIPOUSUARIOPAGINA" ColumnName="IIDTIPOUSUARIOPAGINA" />
+          <ScalarProperty Name="IIDTIPOUSUARIO" ColumnName="IIDTIPOUSUARIO" />
+          <ScalarProperty Name="IIDPAGINA" ColumnName="IIDPAGINA" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+          <ScalarProperty Name="IIDVISTA" ColumnName="IIDVISTA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TipoUsuarioPaginaBoton">
+      <EntityTypeMapping TypeName="BDHospitalModel1.TipoUsuarioPaginaBoton">
+        <MappingFragment StoreEntitySet="TipoUsuarioPaginaBoton">
+          <ScalarProperty Name="IIDTIPOUSUARIOPAGINABOTON" ColumnName="IIDTIPOUSUARIOPAGINABOTON" />
+          <ScalarProperty Name="IIDTIPOUSUARIOPAGINA" ColumnName="IIDTIPOUSUARIOPAGINA" />
+          <ScalarProperty Name="IIDBOTON" ColumnName="IIDBOTON" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Usuario">
+      <EntityTypeMapping TypeName="BDHospitalModel1.Usuario">
+        <MappingFragment StoreEntitySet="Usuario">
+          <ScalarProperty Name="IIDUSUARIO" ColumnName="IIDUSUARIO" />
+          <ScalarProperty Name="IIDTIPOUSUARIO" ColumnName="IIDTIPOUSUARIO" />
+          <ScalarProperty Name="NOMBREUSUARIO" ColumnName="NOMBREUSUARIO" />
+          <ScalarProperty Name="CONTRASEÑA" ColumnName="CONTRASEÑA" />
+          <ScalarProperty Name="BHABILITADO" ColumnName="BHABILITADO" />
+          <ScalarProperty Name="IIDPERSONA" ColumnName="IIDPERSONA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

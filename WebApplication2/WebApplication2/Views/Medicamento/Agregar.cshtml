@@ -1,0 +1,42 @@
+﻿@using WebApplication2.Clases;
+@model MedicamentoCLS
+@{
+    ViewBag.Title = "Agregar";
+    List<SelectListItem> lista = ViewBag.listaFormaFarmaceutica;
+}
+
+<h2>Agregar</h2>
+
+<h1>Formulario Agregar Medicamento</h1>
+
+<div class="ruw">
+    <div class="col-md-6">
+        <form asp-action="Agregar" asp-controller="Medicamento">
+
+            <div class="form-group">
+                <label asp-for="nombre"></label>
+                <input type="text" class="form form-control" asp-for="nombre" />
+                <span asp-validation-for="nombre" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="concentracion"></label>
+                <input type="text" class="form form-control" asp-for="concentracion" />
+                <span asp-validation-for="concentracion" class="text-danger"></span>
+            </div>
+            <hr />
+            <div class="form-group">
+                <label asp-for="iidFormaFarmaceutica"></label>
+               <select asp-for="iidFormaFarmaceutica" class="form form-control" asp-items="@lista"></select>
+           
+                <span asp-validation-for="iidFormaFarmaceutica" class="text-danger"></span>
+            </div>
+            <div>
+                <input type="submit" value="Enviar" class="form form-control"/>
+            </div>
+
+
+
+
+        </form>
+    </div>
+</div>

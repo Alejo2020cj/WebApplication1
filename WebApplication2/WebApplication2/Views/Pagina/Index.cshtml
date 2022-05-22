@@ -1,0 +1,66 @@
+﻿@model IEnumerable<WebApplication2.Clases.PaginaCLS>
+
+@{
+    ViewBag.Title = "Index";
+    string mensajeBuscar = ViewBag.mensajeBuscar;
+}
+
+<h2>Index</h2>
+<p></p>
+<form asp-controller="Pagina" asp-action="Index" method="post" class="mb-2"
+      style="display:grid;grid-template-columns:1fr 2fr 1fr 1fr" id="frmFormulario">
+    <label>Buscar  mensaje</label>
+    <input type="text" id="mensaje" class="rom form-control" name="mensaje" value="@mensajeBuscar" />
+    <input type="submit" value="Buscar mensaje" class="btn btn-info" />
+    <input type="button" value="Limpiar" class="btn btn-danger" onclick="Limpiar()" />
+</form>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.iidPagina)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mensaje)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.controlador)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.accion)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.iidPagina)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mensaje)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.controlador)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.accion)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+<script>
+    function Limpiar() {
+        document.getElementById("mensaje").value = "";
+        document.getElementById("frmFormulario").submit();
+    }
+</script>

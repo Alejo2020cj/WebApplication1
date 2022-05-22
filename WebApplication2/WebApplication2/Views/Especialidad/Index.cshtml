@@ -1,0 +1,83 @@
+﻿@using WebApplication2.Clases;
+
+
+@model IEnumerable<EspecialidadCLS>
+@{
+    ViewBag.Title = "Index";
+    //string mensaje = ViewBag.Mensaje;
+    string nombreEspecialidad = ViewBag.nombreEspecialidad;
+    <div>
+        @*<a class="btn btn-danger" asp-action="Agregar" asp-controller="Especialidad"> Agregar </a>*@
+
+        <strong class="table-bordered"> @Html.ActionLink("Agregar", "Agregar")</strong>
+
+    </div>
+}
+
+
+<p></p>
+<form asp-controller="Especialidad" asp-action="Index" method="post" class="mb-2"
+      style="display:grid;grid-template-columns:1fr 2fr 1fr 1fr" id="frmFormulario">
+    <label>Ingrese nombre especialidad</label>
+    <input type="text" id="nombre" class="rom form-control" name="nombre" value="@nombreEspecialidad" />
+    <input type="submit" value="Buscar" class="btn btn-info" />
+    <input type="button" value="Limpiar" class="btn btn-danger" onclick="Limpiar()" />
+</form>
+    
+
+<table class="table">
+    <thead class="thead-dark">
+        @*<tr>
+            <th>Id Especialidad</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+
+        </tr>*@
+
+        <tr>
+            <th>
+
+                @Html.DisplayNameFor(model => model.iidespecialidad)
+            </th>
+            
+            <th>
+                @Html.DisplayNameFor(model => model.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            @*<tr>
+                <td>@oEspecialidad.iidespecialidad</td>
+                <td>@oEspecialidad.nombre</td>
+                <td>@oEspecialidad.descripcion</td>
+            </tr>*@
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.iidespecialidad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombre)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.descripcion)
+                </td>
+            </tr>
+
+        }
+    </tbody>
+</table>
+
+<script>
+    function Limpiar() {
+        document.getElementById("nombre").value = "";
+        document.getElementById("frmFormulario").submit();
+    }
+</script>
+

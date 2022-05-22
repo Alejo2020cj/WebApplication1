@@ -1,0 +1,631 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDHospitalModel1.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Boton">
+    <Key>
+      <PropertyRef Name="IIDBOTON" />
+    </Key>
+    <Property Name="IIDBOTON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Cita">
+    <Key>
+      <PropertyRef Name="IIDCITA" />
+    </Key>
+    <Property Name="IIDCITA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDUSUARIO" Type="int" />
+    <Property Name="PESO" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="ESTATURA" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="EXAMENFISICO" Type="varchar" MaxLength="200" />
+    <Property Name="EXAMENLABORATORIO" Type="varchar" MaxLength="200" />
+    <Property Name="DIAGNOSTICO" Type="varchar" MaxLength="200" />
+    <Property Name="DFECHACITA" Type="datetime" />
+    <Property Name="IIDESTADOCITA" Type="int" />
+    <Property Name="IIDSEDE" Type="int" />
+    <Property Name="PRECIOATENCION" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="TOTALPAGAR" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="DFECHAINICIOENFERMEDAD" Type="datetime" />
+    <Property Name="IIDDOCTORASIGNADO" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="IIDPERSONA" Type="int" />
+    <Property Name="DESCRIPCIONENFERMEDAD" Type="varchar" MaxLength="300" />
+  </EntityType>
+  <EntityType Name="CitaMedicamento">
+    <Key>
+      <PropertyRef Name="IIDCITAMEDICAMENTO" />
+    </Key>
+    <Property Name="IIDCITAMEDICAMENTO" Type="int" Nullable="false" />
+    <Property Name="IIDCITA" Type="int" />
+    <Property Name="IIDMEDICAMENTO" Type="int" />
+    <Property Name="CANTIDAD" Type="int" />
+    <Property Name="PRECIO" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Doctor">
+    <Key>
+      <PropertyRef Name="IIDDOCTOR" />
+    </Key>
+    <Property Name="IIDDOCTOR" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDSEDE" Type="int" />
+    <Property Name="IIDESPECIALIDAD" Type="int" />
+    <Property Name="SUELDO" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="FECHACONTRATO" Type="datetime" />
+    <Property Name="IIDPERSONA" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Especialidad">
+    <Key>
+      <PropertyRef Name="IIDESPECIALIDAD" />
+    </Key>
+    <Property Name="IIDESPECIALIDAD" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="200" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="EstadoCita">
+    <Key>
+      <PropertyRef Name="IIDESTADO" />
+    </Key>
+    <Property Name="IIDESTADO" Type="int" Nullable="false" />
+    <Property Name="VNOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="VDESCRIPCION" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="FormaFarmaceutica">
+    <Key>
+      <PropertyRef Name="IIDFORMAFARMACEUTICA" />
+    </Key>
+    <Property Name="IIDFORMAFARMACEUTICA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="HistorialCita">
+    <Key>
+      <PropertyRef Name="IIDHISTORIALCITA" />
+    </Key>
+    <Property Name="IIDHISTORIALCITA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDCITA" Type="int" />
+    <Property Name="IIDESTADO" Type="int" />
+    <Property Name="IIDUSUARIO" Type="int" />
+    <Property Name="DFECHA" Type="datetime" />
+    <Property Name="VOBSERVACION" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Medicamento">
+    <Key>
+      <PropertyRef Name="IIDMEDICAMENTO" />
+    </Key>
+    <Property Name="IIDMEDICAMENTO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="CONCENTRACION" Type="varchar" MaxLength="100" />
+    <Property Name="IIDFORMAFARMACEUTICA" Type="int" />
+    <Property Name="PRECIO" Type="decimal" Precision="18" Scale="2" />
+    <Property Name="STOCK" Type="int" />
+    <Property Name="PRESENTACION" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Paciente">
+    <Key>
+      <PropertyRef Name="IIDPACIENTE" />
+    </Key>
+    <Property Name="IIDPACIENTE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDTIPOSANGRE" Type="int" />
+    <Property Name="ALERGIAS" Type="varchar" MaxLength="100" />
+    <Property Name="ENFERMEDADESCRONICAS" Type="varchar" MaxLength="200" />
+    <Property Name="CUADROVACUNAS" Type="varchar" MaxLength="200" />
+    <Property Name="ANTECEDENTESQUIRURGICOS" Type="varchar" MaxLength="200" />
+    <Property Name="IIDPERSONA" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Pagina">
+    <Key>
+      <PropertyRef Name="IIDPAGINA" />
+    </Key>
+    <Property Name="IIDPAGINA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="MENSAJE" Type="varchar" MaxLength="50" />
+    <Property Name="ACCION" Type="varchar" MaxLength="50" />
+    <Property Name="CONTROLADOR" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Persona">
+    <Key>
+      <PropertyRef Name="IIDPERSONA" />
+    </Key>
+    <Property Name="IIDPERSONA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="APPATERNO" Type="varchar" MaxLength="150" />
+    <Property Name="APMATERNO" Type="varchar" MaxLength="150" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="200" />
+    <Property Name="TELEFONOFIJO" Type="varchar" MaxLength="10" />
+    <Property Name="TELEFONOCELULAR" Type="varchar" MaxLength="10" />
+    <Property Name="FECHANACIMIENTO" Type="datetime" />
+    <Property Name="IIDSEXO" Type="int" />
+    <Property Name="BDOCTOR" Type="int" />
+    <Property Name="BPACIENTE" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="FOTO" Type="varchar(max)" />
+    <Property Name="BTIENEUSUARIO" Type="int" />
+    <Property Name="IIDUSUARIO" Type="int" />
+  </EntityType>
+  <EntityType Name="Sede">
+    <Key>
+      <PropertyRef Name="IIDSEDE" />
+    </Key>
+    <Property Name="IIDSEDE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="DIRECCION" Type="varchar" MaxLength="150" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Sexo">
+    <Key>
+      <PropertyRef Name="IIDSEXO" />
+    </Key>
+    <Property Name="IIDSEXO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="50" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TipoSangre">
+    <Key>
+      <PropertyRef Name="IIDTIPOSANGRE" />
+    </Key>
+    <Property Name="IIDTIPOSANGRE" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoUsuario">
+    <Key>
+      <PropertyRef Name="IIDTIPOUSUARIO" />
+    </Key>
+    <Property Name="IIDTIPOUSUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="NOMBRE" Type="varchar" MaxLength="100" />
+    <Property Name="DESCRIPCION" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoUsuarioPagina">
+    <Key>
+      <PropertyRef Name="IIDTIPOUSUARIOPAGINA" />
+    </Key>
+    <Property Name="IIDTIPOUSUARIOPAGINA" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDTIPOUSUARIO" Type="int" />
+    <Property Name="IIDPAGINA" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="IIDVISTA" Type="int" />
+  </EntityType>
+  <EntityType Name="TipoUsuarioPaginaBoton">
+    <Key>
+      <PropertyRef Name="IIDTIPOUSUARIOPAGINABOTON" />
+    </Key>
+    <Property Name="IIDTIPOUSUARIOPAGINABOTON" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDTIPOUSUARIOPAGINA" Type="int" />
+    <Property Name="IIDBOTON" Type="int" />
+    <Property Name="BHABILITADO" Type="int" />
+  </EntityType>
+  <EntityType Name="Usuario">
+    <Key>
+      <PropertyRef Name="IIDUSUARIO" />
+    </Key>
+    <Property Name="IIDUSUARIO" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IIDTIPOUSUARIO" Type="int" Nullable="false" />
+    <Property Name="NOMBREUSUARIO" Type="varchar" MaxLength="100" />
+    <Property Name="CONTRASEÑA" Type="varchar" MaxLength="100" />
+    <Property Name="BHABILITADO" Type="int" />
+    <Property Name="IIDPERSONA" Type="int" />
+  </EntityType>
+  <Association Name="FK__Cita__IIDDOCTORA__01142BA1">
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Doctor">
+        <PropertyRef Name="IIDDOCTOR" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IIDDOCTORASIGNADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IIDESTADOC__7E37BEF6">
+    <End Role="EstadoCita" Type="Self.EstadoCita" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoCita">
+        <PropertyRef Name="IIDESTADO" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IIDESTADOCITA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IIDPERSONA__2739D489">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IIDPERSONA" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IIDPERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IIDSEDE__7F2BE32F">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="IIDSEDE" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IIDSEDE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Cita__IIDUSUARIO__7C4F7684">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Cita" Type="Self.Cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IIDUSUARIO" />
+      </Principal>
+      <Dependent Role="Cita">
+        <PropertyRef Name="IIDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__citamedic__IIDCI__03F0984C">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="0..1" />
+    <End Role="CitaMedicamento" Type="Self.CitaMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IIDCITA" />
+      </Principal>
+      <Dependent Role="CitaMedicamento">
+        <PropertyRef Name="IIDCITA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__citamedic__IIDME__04E4BC85">
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="0..1" />
+    <End Role="CitaMedicamento" Type="Self.CitaMedicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Medicamento">
+        <PropertyRef Name="IIDMEDICAMENTO" />
+      </Principal>
+      <Dependent Role="CitaMedicamento">
+        <PropertyRef Name="IIDMEDICAMENTO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Doctor__IIDPERSO__693CA210">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IIDPERSONA" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="IIDPERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historial__IIDCI__07C12930">
+    <End Role="Cita" Type="Self.Cita" Multiplicity="0..1" />
+    <End Role="HistorialCita" Type="Self.HistorialCita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Cita">
+        <PropertyRef Name="IIDCITA" />
+      </Principal>
+      <Dependent Role="HistorialCita">
+        <PropertyRef Name="IIDCITA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historial__IIDES__08B54D69">
+    <End Role="EstadoCita" Type="Self.EstadoCita" Multiplicity="0..1" />
+    <End Role="HistorialCita" Type="Self.HistorialCita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="EstadoCita">
+        <PropertyRef Name="IIDESTADO" />
+      </Principal>
+      <Dependent Role="HistorialCita">
+        <PropertyRef Name="IIDESTADO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Historial__IIDUS__09A971A2">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="HistorialCita" Type="Self.HistorialCita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IIDUSUARIO" />
+      </Principal>
+      <Dependent Role="HistorialCita">
+        <PropertyRef Name="IIDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Medicamen__IIDFO__36B12243">
+    <End Role="FormaFarmaceutica" Type="Self.FormaFarmaceutica" Multiplicity="0..1" />
+    <End Role="Medicamento" Type="Self.Medicamento" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FormaFarmaceutica">
+        <PropertyRef Name="IIDFORMAFARMACEUTICA" />
+      </Principal>
+      <Dependent Role="Medicamento">
+        <PropertyRef Name="IIDFORMAFARMACEUTICA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Paciente__IIDTIP__17036CC0">
+    <End Role="TipoSangre" Type="Self.TipoSangre" Multiplicity="0..1" />
+    <End Role="Paciente" Type="Self.Paciente" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoSangre">
+        <PropertyRef Name="IIDTIPOSANGRE" />
+      </Principal>
+      <Dependent Role="Paciente">
+        <PropertyRef Name="IIDTIPOSANGRE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Persona__IIDPERS__17F790F9">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="1" />
+    <End Role="Persona1" Type="Self.Persona" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IIDPERSONA" />
+      </Principal>
+      <Dependent Role="Persona1">
+        <PropertyRef Name="IIDPERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Persona__IIDUSUA__282DF8C2">
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="0..1" />
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Usuario">
+        <PropertyRef Name="IIDUSUARIO" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="IIDUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TipoUsuar__IIDBO__797309D9">
+    <End Role="Boton" Type="Self.Boton" Multiplicity="0..1" />
+    <End Role="TipoUsuarioPaginaBoton" Type="Self.TipoUsuarioPaginaBoton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Boton">
+        <PropertyRef Name="IIDBOTON" />
+      </Principal>
+      <Dependent Role="TipoUsuarioPaginaBoton">
+        <PropertyRef Name="IIDBOTON" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TipoUsuar__IIDPA__75A278F5">
+    <End Role="Pagina" Type="Self.Pagina" Multiplicity="0..1" />
+    <End Role="TipoUsuarioPagina" Type="Self.TipoUsuarioPagina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Pagina">
+        <PropertyRef Name="IIDPAGINA" />
+      </Principal>
+      <Dependent Role="TipoUsuarioPagina">
+        <PropertyRef Name="IIDPAGINA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TipoUsuar__IIDTI__74AE54BC">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="0..1" />
+    <End Role="TipoUsuarioPagina" Type="Self.TipoUsuarioPagina" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="IIDTIPOUSUARIO" />
+      </Principal>
+      <Dependent Role="TipoUsuarioPagina">
+        <PropertyRef Name="IIDTIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TipoUsuar__IIDTI__787EE5A0">
+    <End Role="TipoUsuarioPagina" Type="Self.TipoUsuarioPagina" Multiplicity="0..1" />
+    <End Role="TipoUsuarioPaginaBoton" Type="Self.TipoUsuarioPaginaBoton" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuarioPagina">
+        <PropertyRef Name="IIDTIPOUSUARIOPAGINA" />
+      </Principal>
+      <Dependent Role="TipoUsuarioPaginaBoton">
+        <PropertyRef Name="IIDTIPOUSUARIOPAGINA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IIDPERS__14270015">
+    <End Role="Persona" Type="Self.Persona" Multiplicity="0..1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Persona">
+        <PropertyRef Name="IIDPERSONA" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IIDPERSONA" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__Usuario__IIDTIPO__68487DD7">
+    <End Role="TipoUsuario" Type="Self.TipoUsuario" Multiplicity="1" />
+    <End Role="Usuario" Type="Self.Usuario" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoUsuario">
+        <PropertyRef Name="IIDTIPOUSUARIO" />
+      </Principal>
+      <Dependent Role="Usuario">
+        <PropertyRef Name="IIDTIPOUSUARIO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_Clinica">
+    <End Role="Sede" Type="Self.Sede" Multiplicity="0..1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sede">
+        <PropertyRef Name="IIDSEDE" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="IIDSEDE" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Doctor_Especialidad">
+    <End Role="Especialidad" Type="Self.Especialidad" Multiplicity="0..1" />
+    <End Role="Doctor" Type="Self.Doctor" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Especialidad">
+        <PropertyRef Name="IIDESPECIALIDAD" />
+      </Principal>
+      <Dependent Role="Doctor">
+        <PropertyRef Name="IIDESPECIALIDAD" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Paciente_Sexo">
+    <End Role="Sexo" Type="Self.Sexo" Multiplicity="0..1" />
+    <End Role="Persona" Type="Self.Persona" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Sexo">
+        <PropertyRef Name="IIDSEXO" />
+      </Principal>
+      <Dependent Role="Persona">
+        <PropertyRef Name="IIDSEXO" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BDHospitalModel1StoreContainer">
+    <EntitySet Name="Boton" EntityType="Self.Boton" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Cita" EntityType="Self.Cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CitaMedicamento" EntityType="Self.CitaMedicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Doctor" EntityType="Self.Doctor" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Especialidad" EntityType="Self.Especialidad" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="EstadoCita" EntityType="Self.EstadoCita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="FormaFarmaceutica" EntityType="Self.FormaFarmaceutica" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="HistorialCita" EntityType="Self.HistorialCita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Medicamento" EntityType="Self.Medicamento" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Paciente" EntityType="Self.Paciente" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Pagina" EntityType="Self.Pagina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Persona" EntityType="Self.Persona" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sede" EntityType="Self.Sede" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Sexo" EntityType="Self.Sexo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoSangre" EntityType="Self.TipoSangre" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuario" EntityType="Self.TipoUsuario" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuarioPagina" EntityType="Self.TipoUsuarioPagina" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoUsuarioPaginaBoton" EntityType="Self.TipoUsuarioPaginaBoton" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Usuario" EntityType="Self.Usuario" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__Cita__IIDDOCTORA__01142BA1" Association="Self.FK__Cita__IIDDOCTORA__01142BA1">
+      <End Role="Doctor" EntitySet="Doctor" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IIDESTADOC__7E37BEF6" Association="Self.FK__Cita__IIDESTADOC__7E37BEF6">
+      <End Role="EstadoCita" EntitySet="EstadoCita" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IIDPERSONA__2739D489" Association="Self.FK__Cita__IIDPERSONA__2739D489">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IIDSEDE__7F2BE32F" Association="Self.FK__Cita__IIDSEDE__7F2BE32F">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Cita__IIDUSUARIO__7C4F7684" Association="Self.FK__Cita__IIDUSUARIO__7C4F7684">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Cita" EntitySet="Cita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__citamedic__IIDCI__03F0984C" Association="Self.FK__citamedic__IIDCI__03F0984C">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="CitaMedicamento" EntitySet="CitaMedicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__citamedic__IIDME__04E4BC85" Association="Self.FK__citamedic__IIDME__04E4BC85">
+      <End Role="Medicamento" EntitySet="Medicamento" />
+      <End Role="CitaMedicamento" EntitySet="CitaMedicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Doctor__IIDPERSO__693CA210" Association="Self.FK__Doctor__IIDPERSO__693CA210">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historial__IIDCI__07C12930" Association="Self.FK__Historial__IIDCI__07C12930">
+      <End Role="Cita" EntitySet="Cita" />
+      <End Role="HistorialCita" EntitySet="HistorialCita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historial__IIDES__08B54D69" Association="Self.FK__Historial__IIDES__08B54D69">
+      <End Role="EstadoCita" EntitySet="EstadoCita" />
+      <End Role="HistorialCita" EntitySet="HistorialCita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Historial__IIDUS__09A971A2" Association="Self.FK__Historial__IIDUS__09A971A2">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="HistorialCita" EntitySet="HistorialCita" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Medicamen__IIDFO__36B12243" Association="Self.FK__Medicamen__IIDFO__36B12243">
+      <End Role="FormaFarmaceutica" EntitySet="FormaFarmaceutica" />
+      <End Role="Medicamento" EntitySet="Medicamento" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Paciente__IIDTIP__17036CC0" Association="Self.FK__Paciente__IIDTIP__17036CC0">
+      <End Role="TipoSangre" EntitySet="TipoSangre" />
+      <End Role="Paciente" EntitySet="Paciente" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Persona__IIDPERS__17F790F9" Association="Self.FK__Persona__IIDPERS__17F790F9">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Persona1" EntitySet="Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Persona__IIDUSUA__282DF8C2" Association="Self.FK__Persona__IIDUSUA__282DF8C2">
+      <End Role="Usuario" EntitySet="Usuario" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TipoUsuar__IIDBO__797309D9" Association="Self.FK__TipoUsuar__IIDBO__797309D9">
+      <End Role="Boton" EntitySet="Boton" />
+      <End Role="TipoUsuarioPaginaBoton" EntitySet="TipoUsuarioPaginaBoton" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TipoUsuar__IIDPA__75A278F5" Association="Self.FK__TipoUsuar__IIDPA__75A278F5">
+      <End Role="Pagina" EntitySet="Pagina" />
+      <End Role="TipoUsuarioPagina" EntitySet="TipoUsuarioPagina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TipoUsuar__IIDTI__74AE54BC" Association="Self.FK__TipoUsuar__IIDTI__74AE54BC">
+      <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+      <End Role="TipoUsuarioPagina" EntitySet="TipoUsuarioPagina" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TipoUsuar__IIDTI__787EE5A0" Association="Self.FK__TipoUsuar__IIDTI__787EE5A0">
+      <End Role="TipoUsuarioPagina" EntitySet="TipoUsuarioPagina" />
+      <End Role="TipoUsuarioPaginaBoton" EntitySet="TipoUsuarioPaginaBoton" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IIDPERS__14270015" Association="Self.FK__Usuario__IIDPERS__14270015">
+      <End Role="Persona" EntitySet="Persona" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK__Usuario__IIDTIPO__68487DD7" Association="Self.FK__Usuario__IIDTIPO__68487DD7">
+      <End Role="TipoUsuario" EntitySet="TipoUsuario" />
+      <End Role="Usuario" EntitySet="Usuario" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_Clinica" Association="Self.FK_Doctor_Clinica">
+      <End Role="Sede" EntitySet="Sede" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Doctor_Especialidad" Association="Self.FK_Doctor_Especialidad">
+      <End Role="Especialidad" EntitySet="Especialidad" />
+      <End Role="Doctor" EntitySet="Doctor" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Paciente_Sexo" Association="Self.FK_Paciente_Sexo">
+      <End Role="Sexo" EntitySet="Sexo" />
+      <End Role="Persona" EntitySet="Persona" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

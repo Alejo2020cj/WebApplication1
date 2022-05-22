@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="eeda263f1ff1448b9f0070c07c41bfca" Name="Diagram1">
+        <EntityTypeShape EntityType="BDHospitalModel1.Boton" Width="1.5" PointX="6" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Cita" Width="1.5" PointX="11.25" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.CitaMedicamento" Width="1.5" PointX="13.5" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Doctor" Width="1.5" PointX="10.5" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Especialidad" Width="1.5" PointX="8.25" PointY="11.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.EstadoCita" Width="1.5" PointX="9" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.FormaFarmaceutica" Width="1.5" PointX="9" PointY="23.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.HistorialCita" Width="1.5" PointX="16.5" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Medicamento" Width="1.5" PointX="11.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Paciente" Width="1.5" PointX="3" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Pagina" Width="1.5" PointX="0.75" PointY="5.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Persona" Width="1.5" PointX="8.25" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Sede" Width="1.5" PointX="8.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Sexo" Width="1.5" PointX="6" PointY="1.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.sysdiagrams" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.TipoSangre" Width="1.5" PointX="0.75" PointY="12.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.TipoUsuario" Width="1.5" PointX="0.75" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.TipoUsuarioPagina" Width="1.5" PointX="3" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.TipoUsuarioPaginaBoton" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="BDHospitalModel1.Usuario" Width="1.5" PointX="6" PointY="7.875" IsExpanded="true" />
+        <AssociationConnector Association="BDHospitalModel1.FK__TipoUsuar__IIDBO__797309D9" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Cita__IIDDOCTORA__01142BA1" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Cita__IIDESTADOC__7E37BEF6" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Cita__IIDPERSONA__2739D489" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Cita__IIDSEDE__7F2BE32F" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Cita__IIDUSUARIO__7C4F7684" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__citamedic__IIDCI__03F0984C" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Historial__IIDCI__07C12930" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__citamedic__IIDME__04E4BC85" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Doctor__IIDPERSO__693CA210" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK_Doctor_Clinica" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK_Doctor_Especialidad" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Historial__IIDES__08B54D69" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Medicamen__IIDFO__36B12243" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Historial__IIDUS__09A971A2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Paciente__IIDTIP__17036CC0" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__TipoUsuar__IIDPA__75A278F5" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Persona__IIDPERS__17F790F9" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Persona__IIDUSUA__282DF8C2" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Usuario__IIDPERS__14270015" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK_Paciente_Sexo" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__TipoUsuar__IIDTI__74AE54BC" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__Usuario__IIDTIPO__68487DD7" ManuallyRouted="false" />
+        <AssociationConnector Association="BDHospitalModel1.FK__TipoUsuar__IIDTI__787EE5A0" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

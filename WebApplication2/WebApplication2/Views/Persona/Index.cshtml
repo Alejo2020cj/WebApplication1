@@ -1,0 +1,34 @@
+﻿@using WebApplication2.Clases;
+@model IEnumerable<PersonaCLS>
+@{
+    ViewBag.Title = "Index";
+    List<SelectListItem> listaSexo = ViewBag.listaSexo;
+}
+
+@*<form>
+    <label>Ingrese Sexo</label>
+    @Html.DropDownList("iidSexo", listaSexo,new { @class="form form-control"})
+</form>*@
+
+<h2>Datos de Persona</h2>
+<table class=" table">
+    <thead class=" alert-danger">
+        <tr>
+            <th>iidPersona</th>
+            <th>Nombre Completo</th>
+            <th>Email</th>
+            <th>Nombre Sexo</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (PersonaCLS oPersonaCLS in Model)
+        { 
+        <tr>
+            <td>@oPersonaCLS.iidPersona</td>
+            <td>@oPersonaCLS.nombreCompleto</td>
+            <td>@oPersonaCLS.email</td>
+            <td>@oPersonaCLS.nombreSexo</td>
+        </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<WebApplication2.Clases.MedicamentoCLS>
+
+@{
+    ViewBag.Title = "Index";
+
+    List<SelectListItem> listaForma = ViewBag.listaForma;
+}
+
+
+<h2>Index</h2>
+<form style="display:grid;grid-template-columns:1fr 2fr 1fr" class="mb-2" id="frmEnviar">
+    <label>Ingrese nombre de la forma farmaceutica</label>
+    @Html.DropDownList("iidFormaFarmaceutica", listaForma, new {@class="form form-control" })
+</form>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.iidmedicamento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.stock)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreFormaFarmaceutica)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.iidmedicamento)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.precio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.stock)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreFormaFarmaceutica)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>
+
+@*Lineas de codigo para que sea sencitivo el comboBox*@
+<script>
+
+    var iidFormaFarmaceutica = document.getElementById("iidFormaFarmaceutica");
+
+    /*  Todo lo que ponga o esciba aqui se ejecuta */
+    iidFormaFarmaceutica.onchange = function()
+    {
+        /*  Todo lo que ponga o esciba aqui se ejecuta */
+        document.getElementById("frmEnviar").submit();
+    }
+</script>
