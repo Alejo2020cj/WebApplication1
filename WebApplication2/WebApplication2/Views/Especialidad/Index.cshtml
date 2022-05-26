@@ -23,23 +23,23 @@
     <input type="submit" value="Buscar" class="btn btn-info" />
     <input type="button" value="Limpiar" class="btn btn-danger" onclick="Limpiar()" />
 </form>
-    
+
 
 <table class="table">
     <thead class="thead-dark">
         @*<tr>
-            <th>Id Especialidad</th>
-            <th>Nombre</th>
-            <th>Descripcion</th>
+                <th>Id Especialidad</th>
+                <th>Nombre</th>
+                <th>Descripcion</th>
 
-        </tr>*@
+            </tr>*@
 
         <tr>
             <th>
 
                 @Html.DisplayNameFor(model => model.iidespecialidad)
             </th>
-            
+
             <th>
                 @Html.DisplayNameFor(model => model.nombre)
             </th>
@@ -68,8 +68,21 @@
                 <td>
                     @Html.DisplayFor(modelItem => item.descripcion)
                 </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    <i class="fa-solid fa-trash-can btn btn-danger" aria-hidden="true"
+                       onclick="EliminarEspecialidad(@item.iidespecialidad)">
+
+                    </i>
+               
+
+
+                </td>
             </tr>
 
+           
         }
     </tbody>
 </table>
@@ -78,6 +91,10 @@
     function Limpiar() {
         document.getElementById("nombre").value = "";
         document.getElementById("frmFormulario").submit();
+    }
+
+    function EliminarEspecialidad(idEspecialidad) {
+        alert(idEspecialidad);
     }
 </script>
 
